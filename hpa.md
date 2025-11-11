@@ -12,4 +12,19 @@ kubectl get apiservice v1beta1.metrics.k8s.io -o yaml | grep "status:"
 
 status: "True"
 ```
-4. 
+4. create a file hpa-demo.yaml 
+```
+kubectl apply -f hpa-demo.yaml
+```
+5. Create a Horizontal Pod Autoscaler
+```
+kubectl autoscale deployment php-apache \
+  --cpu-percent=50 \
+  --min=1 \
+  --max=10
+```
+6. ``` kubectl get hpa ```
+
+  
+
+
